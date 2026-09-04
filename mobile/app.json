@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "رصد",
+    "slug": "rasd-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,6 +20,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "يحتاج التطبيق للوصول لمعرض الصور لإرفاق صور الملاحظات.",
+          "cameraPermission": "يحتاج التطبيق للوصول للكاميرا لالتقاط صور موقع المشروع."
+        }
+      ]
+    ]
   }
 }
