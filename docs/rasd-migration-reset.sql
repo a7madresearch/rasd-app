@@ -6,7 +6,10 @@
 
 drop policy if exists "authenticated users upload site photos" on storage.objects;
 drop policy if exists "authenticated users view site photos" on storage.objects;
-delete from storage.buckets where id = 'site-notes-photos';
+-- Note: NOT deleting the site-notes-photos bucket itself — Supabase blocks
+-- direct deletes from storage.buckets ("Use the Storage API instead"), and
+-- it isn't necessary: the main migration creates it with
+-- `on conflict (id) do nothing`, so it's already safe to leave in place.
 
 drop table if exists public.notifications cascade;
 drop table if exists public.status_history cascade;
