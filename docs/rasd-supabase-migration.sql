@@ -35,11 +35,15 @@ begin
   values (
     new.id,
     coalesce(new.raw_user_meta_data->>'name', 'مستخدم جديد'),
-    coalesce((new.raw_user_meta_data->>'role')::user_role, 'owner')
+    coalesce((new.raw_user_meta_data->>'role')::public.user_role, 'owner'::public.user_role)
   );
   return new;
 end;
-$$ language plpgsql security definer;
+-- `set search_path = public` matters here: this trigger fires from a
+-- context (auth.users insert) that doesn't search `public` by default,
+-- so an unqualified `user_role` cast fails with
+-- "type user_role does not exist" even though the type exists.
+$$ language plpgsql security definer set search_path = public;
 
 create trigger on_auth_user_created
   after insert on auth.users
