@@ -16,7 +16,10 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -29,6 +32,12 @@
           "cameraPermission": "يحتاج التطبيق للوصول للكاميرا لالتقاط صور موقع المشروع."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "0df8cdf0-3f40-402f-b1df-0d27a44a3ca7"
+      }
+    },
+    "owner": "rasd.1"
   }
 }
