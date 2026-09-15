@@ -6,6 +6,7 @@ import LatestStatusCard from "./LatestStatusCard";
 import AllNotesSection from "./AllNotesSection";
 import AssignedNotesList from "../../components/AssignedNotesList";
 import RaiseConsultationSection from "../../components/RaiseConsultationSection";
+import AiSummaryCard from "../../components/AiSummaryCard";
 
 export default function OwnerDashboardScreen({ project }: { project: Project }) {
   return (
@@ -13,6 +14,7 @@ export default function OwnerDashboardScreen({ project }: { project: Project }) 
       style={{ backgroundColor: colors.paper }}
       contentContainerStyle={{ padding: spacing.lg, gap: spacing.lg }}
     >
+      <AiSummaryCard project={project} />
       <LatestStatusCard project={project} />
       <AssignedNotesList project={project} />
       <AllNotesSection project={project} />
