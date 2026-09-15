@@ -6,6 +6,7 @@ import VisitsSection from "./VisitsSection";
 import CreateNoteSection from "./CreateNoteSection";
 import PendingReviewSection from "./PendingReviewSection";
 import ConsultationsSection from "./ConsultationsSection";
+import AiSummaryCard from "../../components/AiSummaryCard";
 
 export default function ConsultantScreen({ project }: { project: Project }) {
   const [refreshKey, setRefreshKey] = useState(0);
@@ -15,6 +16,7 @@ export default function ConsultantScreen({ project }: { project: Project }) {
       style={{ backgroundColor: colors.paper }}
       contentContainerStyle={{ padding: spacing.lg, gap: spacing.lg }}
     >
+      <AiSummaryCard project={project} />
       <VisitsSection project={project} />
       <PendingReviewSection key={`pr-${refreshKey}`} project={project} />
       <ConsultationsSection key={`cs-${refreshKey}`} project={project} />
